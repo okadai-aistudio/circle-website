@@ -5,7 +5,9 @@
 **公式URL： https://okadai-aistudio.com/**
 
 ## サイトの目的
-サークルの概要・活動内容・参加方法・問い合わせ先を、最小限の1ページで案内する。
+サークルの概要・活動内容・成果物・参加方法・問い合わせ先を、5ページで分かりやすく案内する。必要最低限から公開し、活動・成果に応じて随時更新する。
+
+**公開済みの現状と今後の引き継ぎ： [docs/SITE_STATUS.md](docs/SITE_STATUS.md)**（2026-11-22更新）
 
 ## 公開先
 - 本番URL： https://okadai-aistudio.com/
@@ -39,7 +41,7 @@ GitHub Actions の `CI` は PR と `main` への push で、`npm ci`、型チェ
 
 ## Cloudflare Workers + Static Assets
 
-`cloudflare.config.ts` で Worker 名 `okadai-aistudio-website`、`workers.dev` の利用、`404.html` の配信を指定します。Cloudflare CLI には生成済みの `out/` を渡します。配信対象は静的ファイルのみです。[静的ディレクトリの公開](https://developers.cloudflare.com/cf/projects/#deploy-a-static-assets-directory)・[404 ページの配信](https://developers.cloudflare.com/workers/static-assets/routing/static-site-generation/)
+`cloudflare.config.ts` で Worker 名 `okadai-aistudio-website`、`workersDev: false`、`404.html` の配信を指定します。Cloudflare CLI には生成済みの `out/` を渡します。配信対象は静的ファイルのみです。[静的ディレクトリの公開](https://developers.cloudflare.com/cf/projects/#deploy-a-static-assets-directory)・[404 ページの配信](https://developers.cloudflare.com/workers/static-assets/routing/static-site-generation/)
 
 Node.js 24.22.0 以上の 24 系で、ビルド後に次のコマンドを実行すると、認証やアップロードなしで公開設定を検証できます。
 
@@ -60,19 +62,22 @@ npx --yes cf@1.0.0-rc.2 deploy ./out --dry-run
 
 Workers Free では静的アセットへのリクエストは無料です。Workers Builds の Free 枠は月 3,000 分、同時 1 ビルドです。公開設定時に最新の上限を確認します。[Workers の料金](https://developers.cloudflare.com/workers/platform/pricing/)・[Workers Builds の上限](https://developers.cloudflare.com/workers/ci-cd/builds/limits-and-pricing/)
 
-公開後は正式URL `https://okadai-aistudio.com/` で HTTPS、トップページ、404、主要リンクを確認し、検証結果を Issue #4 に記録します。公開済みの版に問題があれば Deployments から直前の正常な版へ戻します。初回で正常な旧版がない場合は公開を停止し、修正版を再検証します。[ロールバック手順](https://developers.cloudflare.com/workers/versions-and-deployments/rollbacks/)
+本番更新後は正式URL `https://okadai-aistudio.com/` で HTTPS、主要ページ、404、主要リンクを確認し、必要に応じて対象Issueへ記録します。公開済みの版に問題があれば Deployments から直前の正常な版へ戻します。初回で正常な旧版がない場合は公開を停止し、修正版を再検証します。[ロールバック手順](https://developers.cloudflare.com/workers/versions-and-deployments/rollbacks/)
 
-## 公開前に行う確認
-- GitHub組織プロフィールと掲載内容を照合する
-- 公式SNSの正確なURLが確認できたら追加する（未確認のため現時点ではリンクなし）
-- PC・スマホ表示、キーボード操作、メールリンク、非公認表示を確認する
-- Cloudflare の実設定と公開可否を責任者が確認する
+## 現在の公開・運用方針（2026-11-22）
+- **一般公開済み**。サイトはトップ、紹介、活動、制作物、参加案内の5ページ。発起人がPC・スマートフォンで表示確認済み（本人報告）。
+- 公式SNS： [X](https://x.com/okadaiaistudio) / [Instagram](https://www.instagram.com/okadai_ai_studio/)。**参加希望・学生からの質問は各SNSのDMを優先**。
+- Gmail `okadai.ai.dev@gmail.com` は大学関係者・企業・外部団体などとの対外連絡先。サイトには文字で表示し、メールボタンは設置しない。
+- 高画質ヒーロー画像：`public/mascot-hero.webp`（1200×1200px）。ヘッダーアイコンは従来の `public/mascot.webp` を使用。
+- 基本SEO設定（タイトル・説明・robots・サイトマップ・canonical）あり。Google Search Consoleと検索インデックス登録状況は**未確認**。導入を急がず、まずSNSプロフィールへの公式URL掲載を優先する方針。
+- 詳細なマージ履歴、CI・確認状況、未完了事項は [公開状況・引き継ぎ](docs/SITE_STATUS.md) を参照。
 
 ## 開発手順
 - [AGENTS.md](AGENTS.md)
 - [docs/AI_WORKFLOW.md](docs/AI_WORKFLOW.md)
 - [Issue #1 — MVP公開](https://github.com/okadai-aistudio/circle-website/issues/1)
 - [Issue #4 — 独自ドメイン取得・設定](https://github.com/okadai-aistudio/circle-website/issues/4)
+- [docs/SITE_STATUS.md — 2026-11-22現在の公開状況・運用方針](docs/SITE_STATUS.md)
 
 ## 出典
 サークル情報の正本: [GitHub組織プロフィール](https://github.com/okadai-aistudio/.github/blob/main/profile/README.md)
