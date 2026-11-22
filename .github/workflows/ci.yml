@@ -27,4 +27,11 @@ jobs:
           npm run build
           test -s out/index.html
           test -s out/404.html
+          test -s out/about/index.html
+          test -s out/activities/index.html
+          test -s out/projects/index.html
+          test -s out/join/index.html
+          test -s out/sitemap.xml
+          test -s out/robots.txt
+          test -s out/mascot.webp
           test -d out/_next/static
