@@ -31,7 +31,7 @@ export default function Home() {
       <a className="skip-link" href="#main">本文へ移動</a>
       <header className="site-header">
         <div className="container header-inner">
-          <a href="#top" className="brand" aria-label="岡大AIStudio トップへ">
+          <a href="#top" className="brand">
             <span className="brand-mark" aria-hidden="true">A<span>✳</span></span>
             <span>岡大<span className="brand-accent">AI</span>Studio</span>
           </a>
@@ -43,7 +43,7 @@ export default function Home() {
         </div>
       </header>
 
-      <main id="main">
+      <main id="main" tabIndex={-1}>
         <section className="hero" id="top" aria-labelledby="hero-title">
           <div className="container hero-inner">
             <div className="hero-copy">
@@ -108,7 +108,7 @@ export default function Home() {
       </main>
 
       <footer className="site-footer">
-        <div className="container footer-top"><a className="footer-brand" href="#top">岡大AIStudio <span>✳</span></a><a className="footer-mail" href="mailto:okadai.ai.dev@gmail.com">okadai.ai.dev@gmail.com ↗</a></div>
+        <div className="container footer-top"><a className="footer-brand" href="#top">岡大AIStudio <span aria-hidden="true">✳</span></a><a className="footer-mail" href="mailto:okadai.ai.dev@gmail.com">okadai.ai.dev@gmail.com <span aria-hidden="true">↗</span></a></div>
         <div className="container footer-bottom"><p>© {new Date().getFullYear()} 岡大AIStudio</p><p>岡山大学の公認団体ではありません。</p></div>
       </footer>
     </>

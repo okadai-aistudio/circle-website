@@ -1,5 +1,7 @@
 node_modules/
 .next/
+.cloudflare/
+next-env.d.ts
 out/
 .env*
 !.env.example
