@@ -1,0 +1,8 @@
+import Link from "next/link";
+export default function SiteFooter() {
+  return <footer className="site-footer"><div className="container footer-layout">
+    <div className="footer-intro"><Link href="/" className="footer-logo">岡大AIStudio</Link><p>AIを学び、つくり、共有する。</p><small>岡山大学の学生有志による非公認AI開発サークル</small></div>
+    <div><p className="footer-title">サイト案内</p><nav className="footer-links" aria-label="フッターナビゲーション"><Link href="/about/">私たちについて</Link><Link href="/activities/">活動内容</Link><Link href="/projects/">制作物</Link><Link href="/join/">参加案内</Link></nav></div>
+    <div><p className="footer-title">お問い合わせ・SNS</p><p className="footer-email">okadai.ai.dev@gmail.com</p><p className="footer-note">活動予定と参加案内は公式SNSからご確認ください。</p><nav className="social-links" aria-label="岡大AIStudio公式SNS"><a href="https://x.com/okadaiaistudio" target="_blank" rel="noopener noreferrer" aria-label="岡大AIStudio公式X（新しいタブで開く）">X <span aria-hidden="true">↗</span></a><a href="https://www.instagram.com/okadai_ai_studio/" target="_blank" rel="noopener noreferrer" aria-label="岡大AIStudio公式Instagram（新しいタブで開く）">Instagram <span aria-hidden="true">↗</span></a><a href="https://github.com/okadai-aistudio" target="_blank" rel="noopener noreferrer" aria-label="岡大AIStudioのGitHub（新しいタブで開く）">GitHub <span aria-hidden="true">↗</span></a></nav></div>
+  </div><div className="container footer-bottom"><span>© {new Date().getFullYear()} 岡大AIStudio</span><span>岡山大学の公認団体ではありません。</span></div></footer>;
+}
