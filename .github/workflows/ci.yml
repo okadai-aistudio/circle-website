@@ -34,4 +34,5 @@ jobs:
           test -s out/sitemap.xml
           test -s out/robots.txt
           test -s out/mascot.webp
+          test -s out/mascot-hero.webp
           test -d out/_next/static
