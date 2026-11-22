@@ -1,19 +1,40 @@
 # 岡大AIStudio 公式Webサイト
 
-岡山大学のAI開発サークル「岡大AIStudio」の公式Webサイト用リポジトリ。
+岡山大学の学生有志による非公認AI開発サークル「岡大AIStudio」の公式Webサイト。
 
-## 現在の状態
-- Webサイトの実装・使用技術・配備先は未確定。決定・実装後に更新する。
-- 開発の共通手順として [development-workflow v0.1.1](https://github.com/kanata-projects/development-workflow) を導入済み。
-- サークルのWebサイトはこの組織のリポジトリで開発する。個人の「回答します」とは別のプロジェクト。
+## サイトの目的
+サークルの概要・活動内容・参加方法・問い合わせ先を、最小限の1ページで案内する。
 
-## 開発時の入口
-- [AGENTS.md](AGENTS.md)：本人・ChatGPT・Codexが守る短いルール。開始時に確認する。
-- [docs/AI_WORKFLOW.md](docs/AI_WORKFLOW.md)：ゴールから実装、検証、承認、記録までの具体的な進め方。
-- [docs/CODEX_PROMPT_TEMPLATE.md](docs/CODEX_PROMPT_TEMPLATE.md)：Codexへの依頼例。
-- [.github/ISSUE_TEMPLATE/task.yml](.github/ISSUE_TEMPLATE/task.yml)：作業Issueの最小テンプレート。
+## 開発環境
+- Next.js 16 / React 19 / TypeScript
+- スタイル: CSS（追加のCSSフレームワークなし）
+- データベース・認証なし
 
-共通手順の更新は自動反映されない。改良を取り込む場合は、[採用ガイド](https://github.com/kanata-projects/development-workflow/blob/main/docs/ADOPTION.md) に沿って差分を確認する。
+```bash
+npm install
+npm run dev
+```
 
-## 公開について
-本リポジトリがPublicであることと、Webサイトが公開・デプロイ済みであることは別。公開URL・ホスティング・CI/CDは導入時に現物を確認して記録する。
+ブラウザで http://localhost:3000 を開いてください。
+
+```bash
+npm run typecheck
+npm run build
+```
+
+## 公開前に行う確認
+- GitHub組織プロフィールと掲載内容を照合する
+- 公式SNSの正確なURLが確認できたら追加する（未確認のため現時点ではリンクなし）
+- PC・スマホ表示、キーボード操作、メールリンク、非公認表示を確認する
+- Vercel等の公開先は本人承認のうえ設定する
+- 公開URLと検証結果をIssue #1に記録する
+
+## 開発手順
+- [AGENTS.md](AGENTS.md)
+- [docs/AI_WORKFLOW.md](docs/AI_WORKFLOW.md)
+- [Issue #1 — MVP公開](https://github.com/okadai-aistudio/circle-website/issues/1)
+
+## 出典
+サークル情報の正本: [GitHub組織プロフィール](https://github.com/okadai-aistudio/.github/blob/main/profile/README.md)
+
+※岡山大学の公認団体ではありません。
