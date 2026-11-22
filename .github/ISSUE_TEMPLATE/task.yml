@@ -1,0 +1,41 @@
+name: 作業・Issue
+description: サークルWebサイトの開発・継続管理・学習
+body:
+  - type: markdown
+    attributes:
+      value: |
+        既存Issueを優先し、独立したゴール単位で登録する。
+        taskにのみP0〜P3を設定し、managementとlearningは「対象外」を選ぶ。
+        詳細はAGENTS.mdとdocs/AI_WORKFLOW.mdを参照。
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 種別
+      options: [task, management, learning]
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 優先度（taskのみP0〜P3。その他は対象外）
+      options: ["対象外", P0, P1, P2, P3]
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: 目的・完了条件
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: 現状・既決・根拠
+    validations:
+      required: true
+  - type: textarea
+    id: next
+    attributes:
+      label: 残作業・依存・承認境界
+    validations:
+      required: false
