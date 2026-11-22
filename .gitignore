@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.cloudflare/
+next-env.d.ts
+out/
+.env*
+!.env.example
+*.tsbuildinfo
+.DS_Store
+.vercel/
