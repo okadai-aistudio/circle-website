@@ -11,7 +11,7 @@
 - 本番URL： https://okadai-aistudio.com/
 - 配信：Cloudflare Workers + Static Assets（Worker名 `okadai-aistudio-website`）
 - 本番反映：GitHub `main` へのマージ後、Cloudflare Workers Buildsで自動ビルド・デプロイ
-- 初期URL（移行用）： https://okadai-aistudio-website.okadai-aistudio-website.workers.dev/
+- 旧URL（無効化設定済み）： `okadai-aistudio-website.okadai-aistudio-website.workers.dev`（CloudflareのProduction/Preview Worker URLをOFF、`cloudflare.config.ts` でも `workersDev: false`）
 - 独自ドメイン取得・設定の記録： [Issue #4](https://github.com/okadai-aistudio/circle-website/issues/4)
 
 ## 開発環境
