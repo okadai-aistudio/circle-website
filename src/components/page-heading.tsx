@@ -1,0 +1,1 @@
+export default function PageHeading({ english, title, description }: {english:string; title:string; description:string}) {return <div className="page-heading"><div className="container"><p className="eyebrow">{english}</p><h1>{title}</h1><p className="page-lead">{description}</p></div></div>}
