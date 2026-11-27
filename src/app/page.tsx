@@ -1,20 +1,79 @@
 import Link from "next/link";
-import type { Metadata } from "next";
-export const metadata: Metadata = { title: "ホーム", alternates: { canonical: "/" } };
+import { scheduleHref, site } from "@/data/site";
+import { pageMetadata } from "@/lib/page-metadata";
+
+export const metadata = pageMetadata(
+  "/",
+  "岡大AIStudioは岡山大学の学生有志による非公認AI開発サークルです。文理や経験を問わず、AIを学び、自由に開発し、成果を共有します。",
+);
+
 const features = [
-  { num: "01", title: "AI開発", detail: "アイデアをアプリやサービスに。", href: "/activities/" },
-  { num: "02", title: "情報共有", detail: "AIのニュースや技術を持ち寄る。", href: "/activities/" },
-  { num: "03", title: "成果発表", detail: "学びや制作物をみんなに紹介。", href: "/projects/" },
-  { num: "04", title: "交流", detail: "一緒に試し、話し、学び合う。", href: "/join/" },
+  { title: "自由開発", detail: "作りたいものを、自分のペースで形にする。", href: "/activities/#development" },
+  { title: "勉強会", detail: "AIやプログラミングなど、開発に役立つ知識を学ぶ。", href: "/activities/#study" },
+  { title: "情報交換", detail: "ニュースやアイデアを持ち寄り、開発の相談をする。", href: "/activities/#exchange" },
+  { title: "成果発表", detail: "希望する人が、作品や開発中の発見を共有する。", href: "/activities/#showcase" },
 ];
-export default function Home() {return <>
-  <section className="home-hero"><div className="container hero-grid"><div className="hero-content">
-    <p className="eyebrow">OKAYAMA UNIVERSITY · AI COMMUNITY</p><p className="small-chip">2026年11月設立 / 非公認サークル</p>
-    <h1>AIを学び、<br/><em>つくり、共有する。</em></h1>
-    <p className="hero-subtitle">「ちょっと面白そう」から始めよう。</p>
-    <p className="hero-body">岡大AIStudioは、岡山大学の学生有志によるAI開発サークル。初心者も経験者も、自分のペースで学び、つくり、交流できる場所を目指しています。</p>
-    <div className="hero-cta"><Link href="/about/" className="primary-link">岡大AIStudioについて <span aria-hidden="true">↗</span></Link><Link href="/join/" className="plain-link">参加案内を見る <span aria-hidden="true">→</span></Link></div>
-  </div><div className="hero-visual"><div className="mascot-disc"><img src="/mascot-hero.webp" width="1200" height="1200" alt="青と黄色の回路模様の帽子をかぶった岡大AIStudioのキャラクター"/></div><span className="decoration decoration-one" aria-hidden="true"/><span className="decoration decoration-two" aria-hidden="true"/></div></div></section>
-  <section className="home-section"><div className="container"><div className="section-top"><div><p className="eyebrow">WHAT WE DO</p><h2>好きなことから、<br/>可能性を広げよう。</h2></div><p>学ぶことも、つくることも。<br/>気軽な一歩を大切にしています。</p></div><div className="feature-grid">{features.map(feature => <Link className="feature-card" key={feature.num} href={feature.href}><span className="feature-num">{feature.num}</span><h3>{feature.title}</h3><p>{feature.detail}</p><span className="feature-arrow" aria-hidden="true">↗</span></Link>)}</div></div></section>
-  <section className="highlight-section"><div className="container highlight-inner"><div><p className="eyebrow">OUR PROJECTS</p><h2>つくったものを、<br/>公開しよう。</h2><p>メンバーの作品や取り組みを紹介しています。最初の作品は、Webサービス「回答します」。</p></div><Link href="/projects/" className="secondary-link">制作物を見る <span aria-hidden="true">↗</span></Link></div></section>
-  </>}
+
+export default function Home() {
+  return (
+    <>
+      <section className="home-hero">
+        <div className="container hero-grid">
+          <div className="hero-content">
+            <p className="eyebrow">OKAYAMA UNIVERSITY · AI COMMUNITY</p>
+            <p className="small-chip">2026年11月設立 / 非公認サークル</p>
+            <h1>誰もが、<br /><em>自由に創造できる。</em></h1>
+            <p className="hero-subtitle">{site.tagline}</p>
+            <p className="hero-body">岡大AIStudioは、文理や経験を問わず、AIやものづくりに興味を持つ学生が気軽に集まり、自由に開発できる場所を目指しています。</p>
+            <div className="hero-cta">
+              <Link href={scheduleHref} className="primary-link">活動予定を見る <span aria-hidden="true">→</span></Link>
+              <Link href="/about/" className="plain-link">岡大AIStudioについて <span aria-hidden="true">→</span></Link>
+            </div>
+          </div>
+          <div className="hero-visual">
+            <div className="mascot-disc">
+              <img src="/mascot-hero.webp" width="1200" height="1200" alt="青と黄色の回路模様の帽子をかぶった岡大AIStudioのキャラクター" />
+            </div>
+            <span className="decoration decoration-one" aria-hidden="true" />
+            <span className="decoration decoration-two" aria-hidden="true" />
+          </div>
+        </div>
+      </section>
+
+      <section className="content-section tinted home-join">
+        <div className="container highlight-inner">
+          <div>
+            <h2>飛び込み参加、大歓迎。</h2>
+            <p>活動開催中は、事前連絡なしで参加できます。参加前に日時・場所と公式Xの最新案内を確認し、施設の利用条件・定員に従ってお越しください。</p>
+          </div>
+          <Link href="/join/" className="secondary-link">参加案内を見る <span aria-hidden="true">→</span></Link>
+        </div>
+      </section>
+
+      <section className="home-section">
+        <div className="container">
+          <div className="section-top"><h2>岡大AIStudioの活動</h2></div>
+          <div className="feature-grid">
+            {features.map((feature) => (
+              <Link className="feature-card" key={feature.href} href={feature.href}>
+                <h3>{feature.title}</h3>
+                <p>{feature.detail}</p>
+                <span className="feature-arrow" aria-hidden="true">→</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="highlight-section">
+        <div className="container highlight-inner">
+          <div>
+            <h2>メンバーの制作物</h2>
+            <p>メンバーの個人・共同開発の作品を紹介します。最初の掲載作品は、発起人が個人で開発したWebサービス「回答します」です。</p>
+          </div>
+          <Link href="/projects/" className="secondary-link">制作物を見る <span aria-hidden="true">→</span></Link>
+        </div>
+      </section>
+    </>
+  );
+}
