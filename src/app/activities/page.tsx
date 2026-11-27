@@ -2,6 +2,9 @@ import Link from "next/link";
 import ActivitySchedule from "@/components/activity-schedule";
 import PageHeading from "@/components/page-heading";
 import { pageMetadata } from "@/lib/page-metadata";
+import { loadScheduleImages } from "@/lib/schedule-images.mjs";
+
+export const dynamic = "force-static";
 
 export const metadata = pageMetadata(
   "/activities/",
@@ -32,11 +35,13 @@ const activities = [
   },
 ];
 
-export default function Activities() {
+export default async function Activities() {
+  const scheduleImages = await loadScheduleImages();
+
   return (
     <>
       <PageHeading english="OUR ACTIVITIES" title="活動内容" description="作りたいものから、始めよう。" />
-      <ActivitySchedule />
+      <ActivitySchedule scheduleImages={scheduleImages} />
 
       <section className="content-section tinted" id="development">
         <div className="container split-layout">

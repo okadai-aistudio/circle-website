@@ -4,14 +4,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node scripts/schedule-images.mjs prepare && next dev",
+    "build": "node scripts/schedule-images.mjs prepare && next build && node scripts/schedule-images.mjs check",
     "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
     "next": "^16.0.0",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
