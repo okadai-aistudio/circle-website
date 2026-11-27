@@ -9,12 +9,12 @@
 
 **公開済みの現状と今後の引き継ぎ： [docs/SITE_STATUS.md](docs/SITE_STATUS.md)**（2026-11-22更新）
 
-月間活動予定や制作物の追加・更新手順は [掲載内容の更新](docs/CONTENT_UPDATES.md) を参照してください。
+月間活動予定は画像ファイルだけで更新できます。担当者向けの手順と直接 push の条件は [掲載内容の更新](docs/CONTENT_UPDATES.md) を参照してください。
 
 ## 公開先
 - 本番URL： https://okadai-aistudio.com/
 - 配信：Cloudflare Workers + Static Assets（Worker名 `okadai-aistudio-website`）
-- 本番反映：GitHub `main` へのマージ後、Cloudflare Workers Buildsで自動ビルド・デプロイ
+- 本番反映：GitHub `main` の更新後、Cloudflare Workers Buildsで自動ビルド・デプロイ
 - 旧URL（無効化設定済み）： `okadai-aistudio-website.okadai-aistudio-website.workers.dev`（CloudflareのProduction/Preview Worker URLをOFF、`cloudflare.config.ts` でも `workersDev: false`）
 - 独自ドメイン取得・設定の記録： [Issue #4](https://github.com/okadai-aistudio/circle-website/issues/4)
 
@@ -40,6 +40,8 @@ npm run build
 `next.config.ts` の `output: "export"` により、ビルドで `out/index.html`、`out/404.html`、`out/_next/static/` などが生成されます。ビルド済みの表示を確認するには、Python 3 が利用できる環境で `python -m http.server 8080 --bind 127.0.0.1 --directory out` を実行し、`http://127.0.0.1:8080` を開きます。[Next.js の静的エクスポート](https://nextjs.org/docs/app/guides/static-exports)
 
 GitHub Actions の `CI` は PR と `main` への push で、`npm ci`、型チェック、ビルド、静的出力の存在確認を実行します。
+
+`npm run build` は活動予定画像のファイル名・年月の重複・形式・読み込みを検証し、`out/schedules/` への出力を確認します。GitHub Actions と Cloudflare Workers Builds が同じビルドコマンドを使います。
 
 ## Cloudflare Workers + Static Assets
 

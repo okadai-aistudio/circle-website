@@ -34,6 +34,7 @@
 .organization-details dd { margin: 0; }
 
 .schedule-section { padding-top: 54px; }
+.schedule-section > .container { max-width: 900px; }
 .schedule-section h2 { margin-top: 0; }
 .schedule-picker { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; }
 .schedule-picker label { font-weight: 700; }
@@ -50,18 +51,13 @@
 .schedule-status { margin-block: 24px 16px; }
 .schedule-status h3 { margin: 0; font-size: clamp(21px, 3vw, 28px); }
 .schedule-status p { color: var(--muted); line-height: 1.8; margin: 8px 0 0; }
-.schedule-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 22px;
-  align-items: start;
-}
 .schedule-image-link {
   display: grid;
   gap: 12px;
   color: var(--text-blue);
   font-weight: 700;
   line-height: 1.65;
+  text-align: center;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -71,28 +67,6 @@
   border: 1px solid var(--line);
   border-radius: 14px;
 }
-.schedule-details {
-  padding: clamp(16px, 3vw, 26px);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: var(--soft);
-  line-height: 1.7;
-}
-.schedule-details p { margin: 0 0 4px; }
-.schedule-details .schedule-label { color: var(--navy); font-weight: 800; }
-.schedule-details .schedule-label:not(:first-child) { margin-top: 18px; }
-.schedule-note { color: var(--muted); font-size: 14px; }
-.schedule-dates { margin: 8px 0 0; padding: 0; list-style: none; font-variant-numeric: tabular-nums; }
-.schedule-dates li {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-  column-gap: 10px;
-  padding: 5px 0;
-  border-top: 1px solid var(--line);
-}
-.schedule-dates small { color: var(--muted); }
 .schedule-notice {
   margin-top: 24px;
   padding: 16px 20px;
@@ -123,7 +97,7 @@
 @media (max-width: 600px) {
   .hero-content h1 { font-size: clamp(30px, 9.7vw, 52px); }
   .schedule-section { padding-top: 38px; }
-  .schedule-grid, .activity-row { grid-template-columns: minmax(0, 1fr); }
+  .activity-row { grid-template-columns: minmax(0, 1fr); }
   .feature-card { min-height: 155px; }
   .schedule-notice { padding-inline: 14px; }
 }
