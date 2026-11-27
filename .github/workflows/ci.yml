@@ -35,4 +35,10 @@ jobs:
           test -s out/robots.txt
           test -s out/mascot.webp
           test -s out/mascot-hero.webp
+          test -s out/favicon.ico
+          test -s out/apple-icon.png
+          test -s out/og-image.jpg
           test -d out/_next/static
+          for page in about activities projects join; do
+            test -s "out/$page/__next.$page.__PAGE__.txt"
+          done

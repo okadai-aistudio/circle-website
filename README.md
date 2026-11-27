@@ -9,6 +9,8 @@
 
 **公開済みの現状と今後の引き継ぎ： [docs/SITE_STATUS.md](docs/SITE_STATUS.md)**（2026-11-22更新）
 
+月間活動予定や制作物の追加・更新手順は [掲載内容の更新](docs/CONTENT_UPDATES.md) を参照してください。
+
 ## 公開先
 - 本番URL： https://okadai-aistudio.com/
 - 配信：Cloudflare Workers + Static Assets（Worker名 `okadai-aistudio-website`）
@@ -64,9 +66,9 @@ Workers Free では静的アセットへのリクエストは無料です。Work
 
 本番更新後は正式URL `https://okadai-aistudio.com/` で HTTPS、主要ページ、404、主要リンクを確認し、必要に応じて対象Issueへ記録します。公開済みの版に問題があれば Deployments から直前の正常な版へ戻します。初回で正常な旧版がない場合は公開を停止し、修正版を再検証します。[ロールバック手順](https://developers.cloudflare.com/workers/versions-and-deployments/rollbacks/)
 
-## 現在の公開・運用方針（2026-11-22）
+## 公開・運用方針
 - **一般公開済み**。サイトはトップ、紹介、活動、制作物、参加案内の5ページ。発起人がPC・スマートフォンで表示確認済み（本人報告）。
-- 公式SNS： [X](https://x.com/okadaiaistudio) / [Instagram](https://www.instagram.com/okadai_ai_studio/)。**参加希望・学生からの質問は各SNSのDMを優先**。
+- 公式SNSは [X](https://x.com/okadaiaistudio) と [Instagram](https://www.instagram.com/okadai_ai_studio/) です。活動場所や日時の変更・中止は公式Xで案内します。活動開催中は施設の利用条件・定員に従って事前連絡なしで参加でき、学生からの質問・相談にはSNSのDMを利用できます。
 - Gmail `okadai.ai.dev@gmail.com` は大学関係者・企業・外部団体などとの対外連絡先。サイトには文字で表示し、メールボタンは設置しない。
 - 高画質ヒーロー画像：`public/mascot-hero.webp`（1200×1200px）。ヘッダーアイコンは従来の `public/mascot.webp` を使用。
 - 基本SEO設定（タイトル・説明・robots・サイトマップ・canonical）あり。Google Search Consoleと検索インデックス登録状況は**未確認**。導入を急がず、まずSNSプロフィールへの公式URL掲載を優先する方針。
